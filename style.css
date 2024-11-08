@@ -1,59 +1,68 @@
-*{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-body{
-    background-color: rgb(228, 235, 87);
-    display: flex;
-    justify-content: center;
-}
-h1{
-    display: flex;
-    justify-content: center;
-    color: red;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(129, 15, 30);
-    font-size: 45px;
-}
-h2{
-    font-size: 25px;
-    color: rgb(91, 200, 13);
-    width: 200px;
-}
-p{
-    color: blue;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.cont-menu{
-    background: linear-gradient(rgb(255, 225, 0),white);
-    width: 950px;
-    border-radius: 25px;
-    border: rgb(100, 2, 2) 1px solid;
-    margin: 5px;
-    padding: 10px;
+body {
+    background-color: #f4f4f9;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
 }
-.container{
+
+h1 {
+    color: #b22222;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cont-menu {
+    background: #fff;
+    width: 90%;
+    max-width: 960px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-#tableMenu{
+#container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(209, 208, 210);
-    color: black;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#tableMenu {
+    background-color: #f9f9f9;
+    color: #222;
     border-radius: 10px;
-    padding: 50px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+}
+
+#tableMenu:hover {
+    transform: translateY(-5px);
+}
+
+.errorMsg {
+    color: red;
     font-size: 20px;
+    text-align: center;
 }
