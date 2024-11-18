@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="form-container">
       <FormContainer />
-      <ImgContainer />
+      {/* <ImgContainer /> */}
     </div>
   );
 };
