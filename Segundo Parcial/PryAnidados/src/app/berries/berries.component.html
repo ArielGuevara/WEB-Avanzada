@@ -1,0 +1,28 @@
+<div style="position: relative; 
+width: 100%; height: 400px;
+ overflow: hidden;">
+
+    <h1 style="color: white;
+     position: absolute;
+      top: 50%; left: 50%; 
+      transform: translate(-50%, -50%); 
+      font-size: 7rem;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px darkgray;
+      ">Berries</h1>
+
+    <img class="img-fluid img-thumbnail"
+    style="width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 0; left: 0; z-index: -1;"
+     src="https://as2.ftcdn.net/jpg/02/15/59/37/1000_F_215593794_QlAYqpo1VNw0C1pIGpSyVIy6S7NVr547.jpg"
+     alt="berries">    
+</div>
+<div class="bg-dark d-flex g-4">
+    <a class="p-2 text-light text-decoration-none" routerLink="frambuesa">Frambuesa</a>
+    <a class="p-2 text-light text-decoration-none" routerLink="mora">Mora</a>
+</div>
+
+<router-outlet></router-outlet>

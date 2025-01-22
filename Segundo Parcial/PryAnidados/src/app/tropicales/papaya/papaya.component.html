@@ -1,0 +1,67 @@
+<div class="container">
+    <h3 class="bg-warning text-white p-2 text-center rounded">Papayita</h3>
+    <img class="rounded mx-auto d-block" src="https://www.comedera.com/wp-content/uploads/2023/04/Papaya.jpg" alt="papaya">
+    
+    <p>Es una fruta blanda, jugosa, de color verde amarillento, el cual al madurar cambia a color anaranjado y cuenta con numerosas semillas de color negro. Está compuesta principalmente por: agua, hidratos de carbono y papaína, la cual es una enzima que ayuda a digerir las proteínas.</p>
+    <form [formGroup]="papayaForm" (ngSubmit)="agregarProducto()" class="mt-4">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input id="nombre" type="text" class="form-control" formControlName="nombre">
+        <div *ngIf="nombre?.invalid && nombre?.touched" class="text-danger">
+          El nombre es requerido y debe tener al menos 3 caracteres.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="precio" class="form-label">Precio:</label>
+        <input id="precio" type="text" class="form-control" formControlName="precio">
+        <div *ngIf="precio?.invalid && precio?.touched" class="text-danger">
+          Ingresa un precio válido (Ej: 10.50).
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad:</label>
+        <input id="cantidad" type="number" class="form-control" formControlName="cantidad">
+        <div *ngIf="cantidad?.invalid && cantidad?.touched" class="text-danger">
+          La cantidad es requerida y debe ser mayor a 0.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <textarea id="descripcion" class="form-control" rows="3" formControlName="descripcion"></textarea>
+        <div *ngIf="descripcion?.invalid && descripcion?.touched" class="text-danger">
+          La descripción es requerida y no debe exceder los 200 caracteres.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary me-2" [disabled]="papayaForm.invalid">Guardar</button>
+      <button type="button" class="btn btn-secondary" (click)="papayaForm.reset()">Limpiar</button>
+    </form>
+  
+    <h4 class="mt-4">Lista de productos</h4>
+    <table class="table table-striped mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos; let i = index">
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.cantidad }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm me-2" (click)="editarProducto(i)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="eliminarProducto(i)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
