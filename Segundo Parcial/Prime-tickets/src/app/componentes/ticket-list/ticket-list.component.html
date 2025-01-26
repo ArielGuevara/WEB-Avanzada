@@ -1,0 +1,64 @@
+<p-button (click)="showDialog()" label="Ver" />
+<p-dialog header="Editar Perfil" [(visible)]="visible" [modal]="true" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary block mb-8">Actualizar su información.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Usuario</label>
+        <input pInputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+        <label for="email" class="font-semibold w-24">Correo</label>
+        <input pInputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-end gap-2">
+        <p-button label="Cancelar" severity="secondary"  (click)="visible = false"/>
+        <p-button label="Guardar" (click)="visible = false" />
+    </div>
+</p-dialog>
+
+<p-treeTable [value]="tickets">
+    <ng-template pTemplate="header">
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Prioridad</th>
+        <th>Estado</th>
+        <th>Información</th>
+        <th>Archivos</th>
+    </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr>
+        <td>{{ rowData.id }}</td>
+        <td>{{ rowData.titulo }}</td>
+        <td><p-chip [label]="rowData.prioridad" [removable]="true"></p-chip></td>
+        <td>{{ rowData.estado }}</td>
+        <td>
+            <p-accordion value="0">
+                <p-accordion-panel value="0">
+                    <p-accordion-header>Fecha</p-accordion-header>
+                    <p-accordion-content>
+                        <p class="m-0">
+                            {{ rowData.fechaCreacion | date:'short' }}
+                        </p>
+                    </p-accordion-content>
+                </p-accordion-panel>
+                <p-accordion-panel value="1">
+                    <p-accordion-header>Cliente</p-accordion-header>
+                    <p-accordion-content>
+                        <p class="m-0">
+                            {{ rowData.cliente }}
+                        </p>
+                    </p-accordion-content>
+                </p-accordion-panel>
+            </p-accordion>
+        </td> 
+        <td>
+            <p-fileupload #fu mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="10000000" (onUpload)="onUpload($event)" />
+            <p-progressSpinner *ngIf="isUploading" [style]="{ width: '50px', height: '50px' }"></p-progressSpinner>
+            <p-button label="Upload" (onClick)="fu.upload()" severity="secondary" />
+        </td>
+        
+        </tr>
+    </ng-template>
+</p-treeTable>
+
