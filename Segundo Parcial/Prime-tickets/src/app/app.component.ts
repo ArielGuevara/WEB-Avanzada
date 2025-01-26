@@ -17,5 +17,5 @@ import { DialogModule } from 'primeng/dialog';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'primeNG-tickets';
+  title = 'Soporte';
 }
